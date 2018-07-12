@@ -54,20 +54,20 @@ $(document).ready(function () {
 // clone a Item
 $(function() {
   var buttonadd = '<div class="col-md-2"><div class="addbtn" style="padding-top:23px;"><button class="btn btn-success btn-add" type="button"><span class="glyphicon glyphicon-plus"></span></button></div></div>';
-  var fvrhtmlclone = '<div class="fvrclonned">'+$(".duplicate").html() + buttonadd+'</div>';
+  var fvrhtmlclone = '<div class="clonned">'+$(".duplicate").html() + buttonadd+'</div>';
   $( ".duplicate" ).html(fvrhtmlclone);
-  $( ".duplicate" ).after('<div class="fvrclone"></div>');
+  $( ".duplicate" ).after('<div class="clone"></div>');
 
   $(document).on('click', '.btn-add', function(e) {
     e.preventDefault();
 
-    $( ".fvrclone" ).append(fvrhtmlclone);
+    $( ".clone" ).append(fvrhtmlclone);
     $(this).removeClass('btn-add').addClass('btn-remove')
       .removeClass('btn-success').addClass('btn-danger')
       .html('<span class="glyphicon glyphicon-minus"></span>');
 
   }).on('click', '.btn-remove', function(e) {
-    $(this).parents('.fvrclonned').remove();
+    $(this).parents('.clonned').remove();
 
     e.preventDefault();
     return false;
