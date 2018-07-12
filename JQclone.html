@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Jquery Clone</title>
+<style>
+
+
+.container {
+  max-width:1000px;
+  width:100%;
+  margin:100px auto;
+}
+</style>
+</head>
+<body>
+
+
+
+ <div class="container"> 
+    <form>
+      <div class="stepInner"> 
+        <h2 class="text-center" style="margin-bottom: 20px;">Insert Field</h2>
+        <div class="cloneThis"> 
+          <div class="row"> 
+            <div class="duplicate"> 
+              <div class="col-md-5"> 
+                <div class="form-group">
+                  <label for="exampleInputName2">Name</label>
+                  <input type="text" class="form-control" id="exampleInputName2" placeholder="Name">
+                </div>
+              </div>
+              <div class="col-md-5"> 
+                <div class="form-group">
+                  <label for="exampleInputName2">Age</label>
+                  <input type="text" class="form-control" placeholder="Age">
+                </div>
+              </div>
+            </div> 
+          </div> 
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success">Save</button>
+    </form>
+  </div>
+
+<script src="https://code.jquery.com/jquery.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script id="jsbin-javascript">
+$(document).ready(function () {
+// clone a Item
+$(function() {
+  var buttonadd = '<div class="col-md-2"><div class="addbtn" style="padding-top:23px;"><button class="btn btn-success btn-add" type="button"><span class="glyphicon glyphicon-plus"></span></button></div></div>';
+  var fvrhtmlclone = '<div class="fvrclonned">'+$(".duplicate").html() + buttonadd+'</div>';
+  $( ".duplicate" ).html(fvrhtmlclone);
+  $( ".duplicate" ).after('<div class="fvrclone"></div>');
+
+  $(document).on('click', '.btn-add', function(e) {
+    e.preventDefault();
+
+    $( ".fvrclone" ).append(fvrhtmlclone);
+    $(this).removeClass('btn-add').addClass('btn-remove')
+      .removeClass('btn-success').addClass('btn-danger')
+      .html('<span class="glyphicon glyphicon-minus"></span>');
+
+  }).on('click', '.btn-remove', function(e) {
+    $(this).parents('.fvrclonned').remove();
+
+    e.preventDefault();
+    return false;
+  });
+}); // End Clone
+});
+</script>
+</body>
+</html>
