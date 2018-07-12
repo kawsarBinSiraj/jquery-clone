@@ -54,14 +54,14 @@ $(document).ready(function () {
 // clone a Item
 $(function() {
   var buttonadd = '<div class="col-md-2"><div class="addbtn" style="padding-top:23px;"><button class="btn btn-success btn-add" type="button"><span class="glyphicon glyphicon-plus"></span></button></div></div>';
-  var fvrhtmlclone = '<div class="clonned">'+$(".duplicate").html() + buttonadd+'</div>';
-  $( ".duplicate" ).html(fvrhtmlclone);
+  var htmlclone = '<div class="clonned">'+$(".duplicate").html() + buttonadd+'</div>';
+  $( ".duplicate" ).html(htmlclone);
   $( ".duplicate" ).after('<div class="clone"></div>');
 
   $(document).on('click', '.btn-add', function(e) {
     e.preventDefault();
 
-    $( ".clone" ).append(fvrhtmlclone);
+    $( ".clone" ).append(htmlclone);
     $(this).removeClass('btn-add').addClass('btn-remove')
       .removeClass('btn-success').addClass('btn-danger')
       .html('<span class="glyphicon glyphicon-minus"></span>');
